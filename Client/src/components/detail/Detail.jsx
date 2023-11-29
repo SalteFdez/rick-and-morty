@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const URL = "http://localhost:3001/rickandmorty/character/${id}";
-const API_KEY = "henrystaff";
+//const URL = "https://rym2.up.railway.app/api/character";
+//const API_KEY = "henrystaff";
 
 export default function Detail(props) {
 
@@ -11,7 +11,8 @@ export default function Detail(props) {
    // console.log(id);
    const [character, setCharacter] = useState({});
    useEffect(() => {
-      axios(`${URL}/${id}?key=${API_KEY}`)
+      //axios(`${URL}/${id}?key=${API_KEY}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
          //* { timpo:x, status:x, data: { Rick } }
          .then(
             ({ data }) => {

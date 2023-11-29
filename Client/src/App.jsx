@@ -12,8 +12,8 @@ import Form from './components/form/Form.jsx';
 import Nav from './components/nav/Nav.jsx';
 import NotFound from './components/notfound/NotFound.jsx';
 
-const URL = "http://localhost:3001/rickandmorty/character/${id}";
-const API_KEY = "henrystaff";
+//const URL = "https://rym2.up.railway.app/api/character";
+//const API_KEY = "henrystaff";
 
 function App() {
    
@@ -30,7 +30,8 @@ function App() {
       if(characterId.length) {
          return alert(`${characterId[0].name} ya existe!`)
       }
-      axios(`${URL}/${id}?key=${API_KEY}`)
+      //axios(`${URL}/${id}?key=${API_KEY}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
          .then(
             ({ data }) => {
                if (data.name) {
