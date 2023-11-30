@@ -52,7 +52,7 @@ function App() {
    //* Login
    const [access, setAccess] = useState(false);
    const EMAIL = 'ejemplo@gmail.com';
-   const PASSWORD = '123456';
+   const PASSWORD = '1234';
 
    function login(userData) {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
