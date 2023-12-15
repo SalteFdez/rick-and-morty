@@ -54,15 +54,15 @@ function App() {
    const EMAIL = 'ejemplo@gmail.com';
    const PASSWORD = '1234';
 
-   function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      } else {
-         alert("Credenciales incorrectas!");
-      }
-   }
-
+function login(userData) {
+   const { email, password } = userData;
+   const URL = 'http://localhost:3001/rickandmorty/login/';
+   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate('/home');
+   });
+}
    function logout() {
       setAccess(false);
    }
@@ -70,7 +70,7 @@ function App() {
    useEffect(() => {
       //* Logueo automático
       !access && navigate('/home');
-      // !access && navigate('/');
+      //!access && navigate('/');
    }, [access]);
 
    return (

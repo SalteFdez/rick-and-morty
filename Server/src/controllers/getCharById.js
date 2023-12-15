@@ -1,10 +1,11 @@
 const axios = require("axios");
-
-const URL = "https://rym2.up.railway.app/api/character"
-const API_KEY = "henrystaff";
+const URL = "https://rickandmortyapi.com/api/character";
+//const API_KEY = "henrystaff";
 
 const getCharById = (res, id) => {
-    axios.get(`${URL}/${id}?key=${API_KEY}`)
+    const { id } = req.params;
+    axios
+        .get(`${URL}/${id}`)
         // Esto retorna una promesa => pending
         .then(response => response.data)
         .then(data => {

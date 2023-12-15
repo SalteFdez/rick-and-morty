@@ -15,23 +15,12 @@ export default function reducer(state = initialState, { type, payload }) {
   //* action = { type:.., payload:...}
   // const { type, payload } = action;
   switch(type) {
-    case ADD_FAV: {
-      return {
-        ...state,
-        allCharacters: [...state.allCharacters, payload],
-        myFavorites: [...state.allCharacters, payload]
-      }
-    }
-    case REMOVE_FAV: {
-      const filteredFavs = state.allCharacters.filter(
-        favorite => favorite.id !== Number(payload)
-      );
-      return {
-        ...state,
-        allCharacters: filteredFavs,
-        myFavorites: filteredFavs
-      }
-    }
+    case 'ADD_FAV':
+      return { ...state, myFavorites: payload, allCharacters: payload };
+
+    case 'REMOVE_FAV':
+      return { ...state, myFavorites: payload };
+      
     case FILTER:{
       //* { type: FILTER, payload: "FEMALE" }
       if(payload === "All") return {
